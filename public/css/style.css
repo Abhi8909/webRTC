@@ -23,6 +23,9 @@ body {
   top: 0rem;
   bottom: 0;
 }
+.mainContainer .wrapper.confCall {
+  top: 6rem !important;
+}
 .mainContainer .wrapper .container {
   position: relative;
   float: left;
@@ -354,7 +357,4 @@ CSS for video conf page
   float: right;
   padding-right: 4rem;
   box-sizing: border-box;
-}
-.confcall {
-  top: 6rem;
 }
