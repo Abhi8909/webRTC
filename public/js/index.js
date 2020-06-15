@@ -30,7 +30,6 @@ const inputContainer = document.getElementById("input");
 const btnVideo = document.getElementsByClassName("btnVideo")[0];
 const btnAudio = document.getElementsByClassName("btnAudio")[0];
 const btnSend = document.getElementsByClassName("btnSend")[0];
-const btnLogin = document.getElementsByClassName("btnLogin")[0];
 const btnEndCall = document.getElementsByClassName("btnEndCall")[0];
 
 const init = async () => {
@@ -42,21 +41,15 @@ const init = async () => {
       renderUsers(users);
     }
 
+    if (loggedUser === null) {
+      let name = prompt("What is your name?");
+      window.socketId = socket.id;
+      socket.emit("newUser", name);
+      loggedUser = name;
+    }
+
     btnSend.addEventListener("click", () => {
       sendMessage();
-    });
-
-    btnLogin.addEventListener("click", () => {
-      if (loggedUser === null) {
-        let name = document.getElementById("inputLogin").value;
-        window.socketId = socket.id;
-        socket.emit("newUser", name);
-        loggedUser = name;
-        document.getElementsByClassName("btnLogin")[0].style.background =
-          "grey";
-      } else {
-        alert("User Already logged in");
-      }
     });
 
     btnVideo.addEventListener("click", onBtnVideoClick);
