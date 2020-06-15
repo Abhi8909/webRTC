@@ -155,12 +155,15 @@ const init = async () => {
         channelId = data.id;
         document.getElementById("textContainer").style.display = "none";
         document.getElementById("callContainer").style.display = "block";
-        getUserMediaPermissions(mediaPermissions).then((stream) => {
-          let localVideo = document.getElementById("localVideo");
-          if (stream && localVideo) {
-            localVideo.srcObject = stream;
-          }
-        });
+        if (!__localStream) {
+          getUserMediaPermissions(mediaPermissions).then((stream) => {
+            let localVideo = document.getElementById("localVideo");
+            __localStream = stream;
+            if (stream && localVideo) {
+              localVideo.srcObject = stream;
+            }
+          });
+        }
         callMeta.startTime = Date.now();
 
         await peerConnection.setRemoteDescription(
@@ -402,24 +405,6 @@ function calculateCallDuration(callMeta) {
 
 const pad = (v) => {
   return v > 9 ? v : "0" + v;
-};
-
-const toogleAudio = (localStream) => {
-  localStream.getAudioTracks().forEach((media) => {
-    media.enabled = !media.enabled;
-    document.getElementsByClassName(
-      "btnToogleAudio"
-    )[0].innerText = media.enabled ? "Audio Enabled" : "Audio Disabled";
-  });
-};
-
-const toogleVideo = (localStream) => {
-  localStream.getVideoTracks().forEach((media) => {
-    media.enabled = !media.enabled;
-    document.getElementsByClassName(
-      "btnToogleVideo"
-    )[0].innerText = media.enabled ? "Video Enabled" : "Video Disabled";
-  });
 };
 
 init();

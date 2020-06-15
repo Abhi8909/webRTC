@@ -15,19 +15,24 @@ let mediaPermissions = getMediaPermissionOptions();
 let localStream = null;
 
 let channelId = null;
-let username = "Guest";
+let username = null;
 let connectedPeers = {};
 
 /**
  * DOM element
  *
  */
+const btnToogleAudio = document.getElementsByClassName("btnToogleAudio")[0];
+const btnToogleVideo = document.getElementsByClassName("btnToogleVideo")[0];
 const btnEndCall = document.getElementsByClassName("btnEndCall")[0];
 const localVideo = document.getElementById("localVideo");
 
 const initVideoConf = async () => {
   channelId = window.location.pathname.split("/confCall/")[1];
-  username = prompt("What is your name?");
+
+  while (!username) {
+    username = prompt("What is your name?");
+  }
 
   socket.emit("addUserInConfCall", username, channelId);
   document.getElementById("username").innerText = username;
@@ -125,6 +130,12 @@ const initVideoConf = async () => {
   });
 
   btnEndCall.addEventListener("click", leftConfCall);
+  btnToogleAudio.addEventListener("click", () => {
+    toogleAudio(localStream);
+  });
+  btnToogleVideo.addEventListener("click", () => {
+    toogleVideo(localStream);
+  });
 };
 
 const leftConfCall = () => {
