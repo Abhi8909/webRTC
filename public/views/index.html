@@ -1,0 +1,90 @@
+<!--  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Chat App</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="loginContainer">
+        <div class="loginWrapper">
+          <input
+            id="inputLogin"
+            class="loginText"
+            type="text"
+            placeholder="Enter your name"
+          />
+        </div>
+
+        <div class="btnLogin">Login</div>
+      </div>
+      <div class="wrapper">
+        <div class="userPanels">
+          <div class="userHeading">Online Users</div>
+          <div id="users" class="users"></div>
+        </div>
+        <div class="container" id="textContainer">
+          <div class="chatHeading">
+            <div class="headingWrapper">
+              <div class="heading">Soltivo Chat</div>
+              <div class="typingStatus"></div>
+            </div>
+            <div id="startCallBtns" class="actionButtons">
+              <button class="btnVideo">Video call</button>
+              <button disabled class="btnAudio">Audio call</button>
+            </div>
+          </div>
+
+          <div class="chatContainer"></div>
+          <div class="chatFooter">
+            <div class="inputWrapper">
+              <input
+                id="input"
+                class="text"
+                type="text"
+                placeholder="Start typing..."
+              />
+            </div>
+
+            <div class="btnSend">Send</div>
+          </div>
+        </div>
+
+        <div class="container" id="callContainer">
+          <div class="chatHeading">
+            <div class="headingWrapper">
+              <div class="heading video">Soltivo Video Call</div>
+            </div>
+            <div id="endCallBtns" class="actionButtons end">
+              <button class="btnEndCall">End Call</button>
+              <!-- <button class="btnToggleAudio">Disable Audio</button>
+              <button class="btnToggleVideo">Disable Video</button> -->
+              <!-- <button class="btnShareScreen">Share Screen</button> -->
+            </div>
+          </div>
+          <div class="videoContainer">
+            <video autoplay id="remoteVideo"></video>
+            <video autoplay id="localVideo"></video>
+            <video></video>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"
+      integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../js/helper.js"></script>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

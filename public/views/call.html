@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Soltivo Video Conference</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"
+    />
+    <!-- Default theme -->
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"
+    />
+    <!-- Semantic UI theme -->
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"
+    />
+    <!-- Bootstrap theme -->
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="videoConfContainer">
+        <div class="chatHeading">
+          <div class="headingWrapper">
+            <div class="heading video">Soltivo Video Conference</div>
+          </div>
+          <div id="endCallBtns" class="actionButtons end">
+            <button class="btnEndCall">End Call</button>
+            <span id="username"></span>
+          </div>
+        </div>
+
+        <div class="remoteVideos"></div>
+
+        <video
+          autoplay
+          class="localVideoWrapper boxShadow"
+          id="localVideo"
+        ></video>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"
+      integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../js/helper.js"></script>
+    <script src="../js/call.js"></script>
+  </body>
+</html>

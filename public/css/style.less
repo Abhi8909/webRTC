@@ -1,0 +1,395 @@
+//out: style.css
+
+// colors
+@black1: #000000;
+@white: #ffffff;
+@green: #40b994;
+@red: #fe0000;
+
+// fonts
+@h1: 1.4rem;
+@h2: 2rem;
+@h4: 2.4rem;
+@h3: 3rem;
+
+html {
+  font-size: 10px;
+  font-weight: 300;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.mainContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  .wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 4rem;
+    bottom: 0;
+
+    .container {
+      position: relative;
+      float: left;
+      width: 75%;
+      height: 100%;
+      // visibility: hidden;
+
+      .chatContainer {
+        position: absolute;
+        top: 6rem;
+        bottom: 12rem;
+        width: 100%;
+        padding: 0 2rem;
+        box-sizing: border-box;
+        overflow: auto;
+        .msgWrapper {
+          position: relative;
+          float: left;
+          width: 100%;
+          margin-bottom: 1rem;
+          .msg {
+            position: relative;
+            width: auto;
+            font-size: 1.4rem;
+            padding: 0.5rem 1rem;
+            box-sizing: border-box;
+            border-radius: 1.2rem;
+            margin-top: 0.5rem;
+            .senderName {
+              font-size: 1.2rem;
+              font-style: italic;
+            }
+            .timestamp {
+              font-size: 1rem;
+            }
+            &.sender {
+              float: right;
+              text-align: right;
+              background-color: #a2d01e;
+            }
+            &.receiver {
+              float: left;
+              background-color: #2452da;
+              color: white;
+              .timestamp {
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+      .chatFooter {
+        position: absolute;
+        bottom: 6rem;
+        height: 6rem;
+        width: 100%;
+        // padding: 2rem;
+        box-sizing: border-box;
+        .inputWrapper {
+          position: relative;
+          float: left;
+          width: 90%;
+          height: 100%;
+          .text {
+            position: absolute;
+            width: 99%;
+            height: 5.5rem;
+            font-size: @h2;
+            padding-left: 0.5rem;
+          }
+        }
+        .btnSend {
+          position: relative;
+          float: left;
+          width: 10%;
+          height: 100%;
+          box-sizing: border-box;
+          font-weight: 300;
+          font-size: @h2;
+          background-color: green;
+          color: white;
+          cursor: pointer;
+          text-align: center;
+          line-height: 6rem;
+        }
+      }
+
+      // video css start
+
+      .videoHeading {
+        position: absolute;
+        top: 0rem;
+        height: 6rem;
+        line-height: 6rem;
+        width: 100%;
+        text-align: center;
+        font-size: 1.6rem;
+        font-weight: 500;
+        font-style: italic;
+      }
+      .videoContainer {
+        position: absolute;
+        top: 6rem;
+        bottom: 6rem;
+        width: 100%;
+        text-align: center;
+        font-size: 1.6rem;
+        font-weight: 500;
+        padding: 0 1rem;
+        box-sizing: border-box;
+        #localVideo {
+          position: absolute;
+          border: 1px solid #cddfe7;
+          bottom: 4rem;
+          right: 4rem;
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+          border-radius: 5px;
+          width: 250px;
+        }
+        #remoteVideo {
+          border: 1px solid #cddfe7;
+          width: 100%;
+          height: 100%;
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+  .loginContainer {
+    position: absolute;
+    width: 100%;
+    height: 4rem;
+    .loginWrapper {
+      position: relative;
+      float: left;
+      width: 75%;
+      height: auto;
+      .loginText {
+        width: 100%;
+        height: 4rem;
+        padding-left: 1rem;
+        box-sizing: border-box;
+      }
+    }
+    .btnLogin {
+      position: relative;
+      float: left;
+      width: 25%;
+      text-align: center;
+      padding: 0rem;
+      height: 4rem;
+      background: green;
+      font-size: 1.4rem;
+      line-height: 4rem;
+      color: white;
+    }
+  }
+  .userPanels {
+    position: relative;
+    float: left;
+    width: 25%;
+    border-right: 1px solid #c1bebe;
+    height: 100%;
+    box-sizing: border-box;
+
+    .userHeading {
+      position: absolute;
+      top: 0;
+      height: 6rem;
+      width: 100%;
+      text-align: center;
+      line-height: 6rem;
+      font-size: 1.6rem;
+      font-style: italic;
+      border-bottom: 1px solid #c1bebe;
+    }
+    .users {
+      position: absolute;
+      top: 6rem;
+      bottom: 2rem;
+      width: 100%;
+      .user {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: auto;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-bottom: 1px solid #c1bebe;
+        font-size: @h1;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+.notificationWrapper {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 4rem;
+  text-align: center;
+  .notification {
+    position: absolute;
+    background: lightgrey;
+    font-size: 1.4rem;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-style: italic;
+  }
+}
+
+.groupWrapper {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: auto;
+  font-size: 1.8rem;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #c1bebe;
+  box-sizing: border-box;
+}
+
+#createGroup {
+  height: 3.2rem;
+}
+
+#form {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+#_gName {
+  height: 2.5rem;
+  width: 25rem;
+}
+
+.chatHeading {
+  position: absolute;
+  top: 0rem;
+  height: 6rem;
+  line-height: 6rem;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  border-bottom: 1px solid #c1bebe;
+  font-weight: 500;
+  .headingWrapper {
+    position: relative;
+    float: left;
+    width: 60%;
+    .heading {
+      position: relative;
+      float: left;
+      width: 100%;
+      height: 3rem;
+      line-height: 3rem;
+      font-size: 1.6rem;
+      font-style: italic;
+      &.video {
+        line-height: 6rem;
+        height: 6rem;
+      }
+    }
+    .typingStatus {
+      position: relative;
+      float: left;
+      width: 100%;
+      height: 3rem;
+      line-height: 3rem;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: green;
+      font-weight: bold;
+    }
+  }
+  .actionButtons {
+    position: relative;
+    float: left;
+    width: 40%;
+    display: none;
+    &.end {
+      display: block;
+    }
+    .btnVideo {
+      cursor: pointer;
+    }
+  }
+}
+
+/**
+CSS for video conf page
+**/
+
+.videoConfContainer {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  .remoteVideos {
+    position: absolute;
+    top: 6rem;
+    bottom: 0rem;
+    width: 100%;
+    overflow: auto;
+    .remoteVWrapper {
+      position: relative;
+      float: left;
+      width: 31%;
+      // height: 20rem;
+      margin: 1rem;
+      .uName {
+        font-size: 1.4rem;
+        font-style: italic;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+      .remoteV {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 100%;
+        // margin: 1rem;
+      }
+    }
+  }
+
+  .localVideoWrapper {
+    position: fixed;
+    // background: red;
+    bottom: 4rem;
+    right: 4rem;
+    width: 25rem;
+  }
+}
+
+.boxShadow {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#username {
+  font-size: 1.6rem;
+  font-style: italic;
+  float: right;
+  padding-right: 4rem;
+  box-sizing: border-box;
+}

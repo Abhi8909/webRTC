@@ -1,0 +1,35 @@
+<!--  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Group Chat App</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="loginContainer">
+        <form id="form" action="/createGroup" method="POST">
+          <input id="_gName" type="text" name="group" required />
+          <button id="createGroup">Create Group</button>
+        </form>
+      </div>
+      <div class="wrapper">
+        <div class="userPanels">
+          <div class="userHeading">Groups</div>
+          <div id="users" class="users"></div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"
+      integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="../js/group.js"></script>
+  </body>
+</html>
