@@ -31,6 +31,8 @@ const btnVideo = document.getElementsByClassName("btnVideo")[0];
 const btnAudio = document.getElementsByClassName("btnAudio")[0];
 const btnSend = document.getElementsByClassName("btnSend")[0];
 const btnEndCall = document.getElementsByClassName("btnEndCall")[0];
+const btnToogleAudio = document.getElementsByClassName("btnToogleAudio")[0];
+const btnToogleVideo = document.getElementsByClassName("btnToogleVideo")[0];
 
 const init = async () => {
   // adding bind event
@@ -43,6 +45,9 @@ const init = async () => {
 
     if (loggedUser === null) {
       let name = prompt("What is your name?");
+      while (!name) {
+        name = prompt("What is your name?");
+      }
       window.socketId = socket.id;
       socket.emit("newUser", name);
       loggedUser = name;
@@ -55,6 +60,12 @@ const init = async () => {
     btnVideo.addEventListener("click", onBtnVideoClick);
     btnAudio.addEventListener("click", onBtnAudioClick);
     btnEndCall.addEventListener("click", hangup);
+    btnToogleAudio.addEventListener("click", () => {
+      toogleAudio(__localStream);
+    });
+    btnToogleVideo.addEventListener("click", () => {
+      toogleVideo(__localStream);
+    });
 
     inputContainer.addEventListener("keydown", (e) => {
       if (e.keyCode === 13) {
@@ -133,7 +144,6 @@ const init = async () => {
             data.id
           )} wants to call you. Do you accept this call?`,
           buttons: true,
-          dangerMode: true,
         });
 
       if (!confirmed) {
@@ -392,6 +402,24 @@ function calculateCallDuration(callMeta) {
 
 const pad = (v) => {
   return v > 9 ? v : "0" + v;
+};
+
+const toogleAudio = (localStream) => {
+  localStream.getAudioTracks().forEach((media) => {
+    media.enabled = !media.enabled;
+    document.getElementsByClassName(
+      "btnToogleAudio"
+    )[0].innerText = media.enabled ? "Audio Enabled" : "Audio Disabled";
+  });
+};
+
+const toogleVideo = (localStream) => {
+  localStream.getVideoTracks().forEach((media) => {
+    media.enabled = !media.enabled;
+    document.getElementsByClassName(
+      "btnToogleVideo"
+    )[0].innerText = media.enabled ? "Video Enabled" : "Video Disabled";
+  });
 };
 
 init();
