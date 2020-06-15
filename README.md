@@ -17,6 +17,14 @@ This README would normally document whatever steps are necessary to get your app
   for one to one chat enter url http://localhost:3000
   for group chat enter http://localhost:3000/groupchat
 
+for one 2 one video call http://localhost:3000
+then add two diff users one in normal tab and other in private tab
+click on user you will see a video call button click to init call
+
+for many 2 many video call enter http://localhost:3000/confcall
+then click on create conf channel button to create a channel for video conf
+then join with tabs
+
 - Configuration
 - Dependencies
 - Database configuration
