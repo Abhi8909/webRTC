@@ -77,7 +77,7 @@ const scrollToBottom = () => {
 
 const getMediaPermissionOptions = (type) => {
   let options = {
-    audio: false,
+    audio: { echoCancellation: true },
     video: {
       facingMode: "user", // user, enviroment
       width: {
@@ -93,7 +93,6 @@ const getMediaPermissionOptions = (type) => {
 
   switch (type) {
     case "audio":
-      options.audio = true;
       options.video = false;
       break;
 
@@ -102,7 +101,6 @@ const getMediaPermissionOptions = (type) => {
       break;
 
     default:
-      options.audio = true;
       break;
   }
 
